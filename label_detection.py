@@ -22,7 +22,7 @@ def run_quickstart(photo_link):
     # The name of the image file to annotate
     file_name = os.path.join(
         os.path.dirname(__file__),
-        'resources/pics/photo.jpg'.format(photo=photo))
+        'resources/pics/photo.jpg')
 
     # Loads the image into memory
     with io.open(file_name, 'rb') as image_file:
