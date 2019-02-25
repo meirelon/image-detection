@@ -1,23 +1,20 @@
-import argparse
+import argparse #convert this to docker env variables
+import io
+import os
+
+# Imports the Google Cloud client library
+from google.cloud import vision
+from google.cloud.vision import types
+
+#From download image utility
 from downloadImage import download_image
 
 def run_quickstart(photo_link, detection_type="label", from_internet=True):
-    # [START vision_quickstart]
-    import io
-    import os
-
-    # Imports the Google Cloud client library
-    # [START vision_python_migration_import]
-    from google.cloud import vision
-    from google.cloud.vision import types
-    # [END vision_python_migration_import]
     if from_internet:
         download_image(photo_link)
 
     # Instantiates a client
-    # [START vision_python_migration_client]
     client = vision.ImageAnnotatorClient()
-    # [END vision_python_migration_client]
 
     # The name of the image file to annotate
     file_name = os.path.join(
@@ -52,6 +49,9 @@ def run_quickstart(photo_link, detection_type="label", from_internet=True):
                         words.append(word_text.lower())
         return " ".join(words)
 
+    elif detection_type == "face":
+        #add face detection
+
 def main(argv=None):
     parser = argparse.ArgumentParser()
 
@@ -62,7 +62,7 @@ def main(argv=None):
 
     parser.add_argument('--detection-type',
                         dest='detection_type',
-                        default = None,
+                        default = 'label',
                         help='Label or Text Detection')
 
     args, _ = parser.parse_known_args(argv)
