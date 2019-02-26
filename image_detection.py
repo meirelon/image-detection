@@ -7,27 +7,28 @@ from google.cloud import vision
 from google.cloud.vision import types
 
 #From download image utility
-from downloadImage import download_image
+from getImage import read_image_from_url
 
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "key.json"
+# os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "key.json"
 
 def run(photo_link, detection_type="face", from_internet=True):
+
     if from_internet:
-        download_image(photo_link)
+        photo = read_image_from_url(photo_link)
 
     # Instantiates a client
     client = vision.ImageAnnotatorClient()
 
     # The name of the image file to annotate
-    file_name = os.path.join(
-        os.path.dirname(__file__),
-        'resources/pics/photo.jpg')
+    # file_name = os.path.join(
+    #     os.path.dirname(__file__),
+    #     'resources/pics/photo.jpg')
+    #
+    # # Loads the image into memory
+    # with io.open(file_name, 'rb') as image_file:
+    #     content = image_file.read()
 
-    # Loads the image into memory
-    with io.open(file_name, 'rb') as image_file:
-        content = image_file.read()
-
-    image = types.Image(content=content)
+    image = types.Image(content=photo)
 
     if detection_type=="label":
         # Performs label detection on the image file
