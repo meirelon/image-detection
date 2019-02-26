@@ -9,7 +9,9 @@ from google.cloud.vision import types
 #From download image utility
 from downloadImage import download_image
 
-def run_quickstart(photo_link, detection_type="label", from_internet=True):
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "key.json"
+
+def run(photo_link, detection_type="face", from_internet=True):
     if from_internet:
         download_image(photo_link)
 
@@ -33,8 +35,8 @@ def run_quickstart(photo_link, detection_type="label", from_internet=True):
         labels = response.label_annotations
 
         print('Labels:')
-        for label in labels:
-            print(label.description)
+        label_list = [label.description for label in labels]
+        return " ".join(label_list)
 
     elif detection_type == "text":
         response = client.text_detection(image=image)
@@ -61,8 +63,9 @@ def run_quickstart(photo_link, detection_type="label", from_internet=True):
             if v == 5:
                 emotion_list.append(k)
         if len(emotion_list) > 0:
-            print(emotion_list[0])
             return emotion_list[0]
+        else:
+            return 'neutral'
 
 
 def main(argv=None):
@@ -80,7 +83,7 @@ def main(argv=None):
 
     args, _ = parser.parse_known_args(argv)
 
-    run_quickstart(photo_link=args.photo_link, detection_type=args.detection_type)
+    run(photo_link=args.photo_link, detection_type=args.detection_type)
 
 if __name__ == '__main__':
     main()
