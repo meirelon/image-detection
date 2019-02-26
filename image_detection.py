@@ -56,13 +56,11 @@ def run_quickstart(photo_link, detection_type="label", from_internet=True):
                              "sad":face.sorrow_likelihood,
                              "anger":face.anger_likelihood,
                              "surprised":face.surprise_likelihood}
-        print(emotion_dictionary)
         emotion_list = []
         for k,v in emotion_dictionary.items():
-            if v == "VERY_LIKELY":
+            if v == 5:
                 emotion_list.append(k)
         if len(emotion_list) > 0:
-            print(emotion_list[0])
             return emotion_list[0]
 
 
