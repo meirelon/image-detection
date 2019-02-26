@@ -55,9 +55,9 @@ def run_quickstart(photo_link, detection_type="label", from_internet=True):
         likelihood_name = ('UNKNOWN', 'VERY_UNLIKELY', 'UNLIKELY', 'POSSIBLE',
                        'LIKELY', 'VERY_LIKELY')
         for face in faces:
-        print('anger: {}'.format(likelihood_name[face.anger_likelihood]))
-        print('joy: {}'.format(likelihood_name[face.joy_likelihood]))
-        print('surprise: {}'.format(likelihood_name[face.surprise_likelihood]))
+            print('anger: {}'.format(likelihood_name[face.anger_likelihood]))
+            print('joy: {}'.format(likelihood_name[face.joy_likelihood]))
+            print('surprise: {}'.format(likelihood_name[face.surprise_likelihood]))
         # emotion_dictionary = {"happy":face.joyLikelihood,
         #                      "sad":face.sorrowLikelihood,
         #                      "anger":face.angerLikelihood,
