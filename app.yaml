@@ -1,9 +1,5 @@
-runtime: python27
+runtime: python37
 env: standard
-
-libraries:
-  - name: PIL
-    version: latest
 
 env_variables:
   GOOGLE_APPLICATION_CREDENTIALS: "key.json"
