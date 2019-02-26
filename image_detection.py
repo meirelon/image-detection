@@ -50,7 +50,19 @@ def run_quickstart(photo_link, detection_type="label", from_internet=True):
         return " ".join(words)
 
     elif detection_type == "face":
-        #add face detection
+        response = client.face_detection(image=image)
+        face = response.face_annotations[0]
+        emotion_dictionary = {"happy":face.joyLikelihood,
+                             "sad":face.sorrowLikelihood,
+                             "anger":face.angerLikelihood,
+                             "surprised":face.surpriseLikelihood}
+        emotion_list = []
+        for k,v in emotion_dictionary:
+            if v == "VERY_LIKELY":
+                emotion_list.append(k)
+        if emotion_list > 0:
+            return emotion_list[0]
+
 
 def main(argv=None):
     parser = argparse.ArgumentParser()
