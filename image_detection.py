@@ -61,6 +61,7 @@ def run_quickstart(photo_link, detection_type="label", from_internet=True):
             if v == 5:
                 emotion_list.append(k)
         if len(emotion_list) > 0:
+            print(emotion_list[0])
             return emotion_list[0]
 
 
