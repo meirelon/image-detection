@@ -51,7 +51,7 @@ def run_quickstart(photo_link, detection_type="label", from_internet=True):
 
     elif detection_type == "face":
         response = client.face_detection(image=image)
-        faces = response.face_annotations[0]
+        face = response.face_annotations[0]
         emotion_dictionary = {"happy":face.joy_likelihood,
                              "sad":face.sorrow_likelihood,
                              "anger":face.anger_likelihood,
