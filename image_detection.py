@@ -51,23 +51,17 @@ def run_quickstart(photo_link, detection_type="label", from_internet=True):
 
     elif detection_type == "face":
         response = client.face_detection(image=image)
-        faces = response.face_annotations
-        likelihood_name = ('UNKNOWN', 'VERY_UNLIKELY', 'UNLIKELY', 'POSSIBLE',
-                       'LIKELY', 'VERY_LIKELY')
-        for face in faces:
-            print('anger: {}'.format(likelihood_name[face.anger_likelihood]))
-            print('joy: {}'.format(likelihood_name[face.joy_likelihood]))
-            print('surprise: {}'.format(likelihood_name[face.surprise_likelihood]))
-        # emotion_dictionary = {"happy":face.joyLikelihood,
-        #                      "sad":face.sorrowLikelihood,
-        #                      "anger":face.angerLikelihood,
-        #                      "surprised":face.surpriseLikelihood}
-        # emotion_list = []
-        # for k,v in emotion_dictionary:
-        #     if v == "VERY_LIKELY":
-        #         emotion_list.append(k)
-        # if emotion_list > 0:
-        #     return emotion_list[0]
+        faces = response.face_annotations[0]
+        emotion_dictionary = {"happy":face.joy_likelihood,
+                             "sad":face.sorrow_likelihood,
+                             "anger":face.anger_likelihood,
+                             "surprised":face.surprise_likelihood}
+        emotion_list = []
+        for k,v in emotion_dictionary:
+            if v == "VERY_LIKELY":
+                emotion_list.append(k)
+        if emotion_list > 0:
+            return emotion_list[0]
 
 
 def main(argv=None):
