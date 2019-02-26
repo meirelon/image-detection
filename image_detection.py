@@ -51,7 +51,7 @@ def run_quickstart(photo_link, detection_type="label", from_internet=True):
 
     elif detection_type == "face":
         response = client.face_detection(image=image)
-        face = response.face_annotations
+        faces = response.face_annotations
         likelihood_name = ('UNKNOWN', 'VERY_UNLIKELY', 'UNLIKELY', 'POSSIBLE',
                        'LIKELY', 'VERY_LIKELY')
         for face in faces:
