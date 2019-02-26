@@ -60,7 +60,7 @@ def run_quickstart(photo_link, detection_type="label", from_internet=True):
         for k,v in emotion_dictionary.items():
             if v == "VERY_LIKELY":
                 emotion_list.append(k)
-        if emotion_list > 0:
+        if len(emotion_list) > 0:
             return emotion_list[0]
 
 
