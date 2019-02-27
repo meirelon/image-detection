@@ -19,7 +19,7 @@ def run(photo_link, detection_type="face", from_internet=True):
     # Instantiates a client
     client = vision.ImageAnnotatorClient()
 
-    The name of the image file to annotate
+    # The name of the image file to annotate
     file_name = os.path.join(
         os.path.dirname(__file__),
         'resources/pics/photo.jpg')
