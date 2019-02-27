@@ -14,19 +14,19 @@ from getImage import read_image_from_url
 def run(photo_link, detection_type="face", from_internet=True):
 
     if from_internet:
-        photo = read_image_from_url(photo_link)
+        photo = download_image(photo_link)
 
     # Instantiates a client
     client = vision.ImageAnnotatorClient()
 
-    # The name of the image file to annotate
-    # file_name = os.path.join(
-    #     os.path.dirname(__file__),
-    #     'resources/pics/photo.jpg')
-    #
-    # # Loads the image into memory
-    # with io.open(file_name, 'rb') as image_file:
-    #     photo = image_file.read()
+    The name of the image file to annotate
+    file_name = os.path.join(
+        os.path.dirname(__file__),
+        'resources/pics/photo.jpg')
+
+    # Loads the image into memory
+    with io.open(file_name, 'rb') as image_file:
+        photo = image_file.read()
 
     image = types.Image(content=photo)
 
