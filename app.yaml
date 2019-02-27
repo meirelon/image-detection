@@ -1,5 +1,5 @@
 runtime: python37
-env: standard
+env: flex
 
 env_variables:
   GOOGLE_APPLICATION_CREDENTIALS: "key.json"
