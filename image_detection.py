@@ -13,8 +13,8 @@ from google.cloud.vision import types
 
 def run(photo_link, detection_type="face", from_internet=True):
 
-    # if from_internet:
-    #     photo = read_image_from_url(photo_link)
+    if from_internet:
+        photo = read_image_from_url(photo_link)
 
     # Instantiates a client
     client = vision.ImageAnnotatorClient()
@@ -28,7 +28,7 @@ def run(photo_link, detection_type="face", from_internet=True):
     # with io.open(file_name, 'rb') as image_file:
     #     content = image_file.read()
 
-    image = types.Image(content=photo_link)
+    image = types.Image(content=photo)
 
     if detection_type=="label":
         # Performs label detection on the image file

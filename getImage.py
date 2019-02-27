@@ -1,13 +1,13 @@
 import os
 import urllib.request
 
-from PIL import Image
+# from PIL import Image
 import requests
 from io import BytesIO
 
 def read_image_from_url(photo_link):
     r = requests.get(url)
-    return Image.open(BytesIO(r.content))
+    return BytesIO(r.content)
 
 
 def download_image(photo_link):
