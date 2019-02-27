@@ -2,6 +2,8 @@ FROM python:3.6
 
 ENV GOOGLE_APPLICATION_CREDENTIALS=key.json
 
+mkdir -p /resources/pics
+
 #upgrade pip
 RUN pip install --upgrade pip
 
