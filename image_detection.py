@@ -64,6 +64,7 @@ def run(photo_link, detection_type="face", from_internet=True):
             if v == 5:
                 emotion_list.append(k)
         if len(emotion_list) > 0:
+            print(emotion_list[0])
             return emotion_list[0]
         else:
             return 'neutral'
