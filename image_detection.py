@@ -7,7 +7,7 @@ from google.cloud import vision
 from google.cloud.vision import types
 
 #From download image utility
-# from getImage import read_image_from_url
+from getImage import read_image_from_url
 
 # os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "key.json"
 
