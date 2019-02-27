@@ -2,3 +2,4 @@ google-api-python-client
 google-cloud-vision==0.35.2
 Flask==0.12.3
 requests
+urllib2

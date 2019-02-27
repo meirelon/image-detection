@@ -26,7 +26,7 @@ def run(photo_link, detection_type="face", from_internet=True):
     #
     # # Loads the image into memory
     # with io.open(file_name, 'rb') as image_file:
-    #     content = image_file.read()
+    #     photo = image_file.read()
 
     image = types.Image(content=photo)
 

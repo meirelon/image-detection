@@ -1,11 +1,5 @@
-runtime: python27
+runtime: python37
 env: standard
-threadsafe: true
-
-handlers:
- - url: '/.*'
-   script: main.py
-
 
 env_variables:
   GOOGLE_APPLICATION_CREDENTIALS: "key.json"
