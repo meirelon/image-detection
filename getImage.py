@@ -6,7 +6,7 @@ import requests
 from io import BytesIO
 
 def read_image_from_url(photo_link):
-    r = requests.get(url)
+    r = requests.get(photo_link)
     return BytesIO(r.content)
 
 
