@@ -1,7 +1,8 @@
 import os
 import urllib.request
 
-from google.appengine.api import urlfetch, images
+import urllib2
+from google.appengine.api import images
 # import cloudstorage as gcs
 
 # from PIL import Image
@@ -16,9 +17,9 @@ def download_image(photo_link):
     urllib.request.urlretrieve(photo_link, file_path)
 
 def read_image_from_url(url):
-    image_at_url = urlfetch.fetch(url)
+    image_at_url = urllib2.urlopen(url)
     content_type =  image_at_url.headers['Content-Type']
-    filename = "path/to/gcs/file"
+    filename = #use your own or get from file
 
     image_bytes = image_at_url.read()
     image_at_url.close()
@@ -26,5 +27,6 @@ def read_image_from_url(url):
 
     # this comes in handy if you want to resize images:
     if image.width > 800 or image.height > 800:
-        image = images.resize(image_bytes, 800, 800)
+        image_bytes = images.resize(image_bytes, 800, 800)
+
     return image

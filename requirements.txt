@@ -1,4 +1,5 @@
 google-api-python-client
 google-cloud-vision==0.35.2
+google-appengine
 Flask==0.12.3
 requests
