@@ -4,7 +4,7 @@ threadsafe: true
 
 handlers:
  - url: '/.*'
-   script: auto
+   script: main.py
 
 
 env_variables:
