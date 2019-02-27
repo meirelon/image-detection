@@ -14,7 +14,7 @@ from getImage import download_image
 def run(photo_link, detection_type="face", from_internet=True):
 
     if from_internet:
-        photo = download_image(photo_link)
+        download_image(photo_link)
 
     # Instantiates a client
     client = vision.ImageAnnotatorClient()
