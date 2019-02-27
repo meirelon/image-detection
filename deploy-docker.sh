@@ -3,7 +3,7 @@
 # Print sub commands and fail on error
 set -ex
 
-FILE_NAME=dockercompose.docker
+FILE_NAME=imageDetection.docker
 IMAGE_LOCATION=gcr.io/scarlet-labs
 RUN_IMAGE_NAME=image-detection
 RUN_IMAGE_VERSION=$(date +"%Y%m%dT%H%M%S")
