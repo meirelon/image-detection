@@ -1,6 +1,6 @@
 FROM python:3.6
 
-export GOOGLE_APPLICATION_CREDENTIALS=key.json .
+ENV GOOGLE_APPLICATION_CREDENTIALS=key.json .
 
 #upgrade pip
 RUN pip install --upgrade pip
