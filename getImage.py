@@ -1,7 +1,6 @@
 import os
 import urllib.request
 
-import urllib2
 import requests
 from google.appengine.api import images
 # import cloudstorage as gcs
@@ -18,7 +17,7 @@ def download_image(photo_link):
     urllib.request.urlretrieve(photo_link, file_path)
 
 def read_image_from_url(url):
-    image_at_url = urllib2.urlopen(url)
+    image_at_url = requests.get(url)
     content_type =  image_at_url.headers['Content-Type']
     filename = "path/to/gcs/file"
 
